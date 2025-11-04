@@ -119,15 +119,12 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    discord
     steam
-    brave
     vulkan-loader
     vulkan-tools
     mangohud #overlay for fps and such
     protonup #proton GE
     pciutils
-    spotify
     protonup-qt
     lshw
     neofetch
