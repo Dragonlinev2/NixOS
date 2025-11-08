@@ -127,6 +127,7 @@
 
   #foundry setup
   services.foundryvtt = {
+    
   enable = true;
   hostName = "dragon-den.local";   # your hostname
   minifyStaticFiles = true;
@@ -134,7 +135,7 @@
   proxySSL = true;
   upnp = false;
 
-  package = inputs.foundryvtt.packages.${pkgs.system}.default.overrideAttrs (old: {
+  package = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_13.overrideAttrs (old: {
     src = "../../../zip/FoundryVTT0Linux-13.350.zip";
   });
 };
