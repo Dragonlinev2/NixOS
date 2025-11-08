@@ -125,6 +125,16 @@
     vscode  
   ];
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+  #foundry setup
+  services.foundryvtt = {
+    enable = true;
+    hostName = "dragon-den";
+    minifyStaticFiles = true;
+    proxyPort = 443;
+    proxySSL = true;
+    upnp = false;
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

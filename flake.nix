@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    foundryvtt.url = "github:reckenrode/nix-foundryvtt/6c52bfc6824a3dba673df4894a71193ec32aa399";
+    foundryvtt.url = "github:reckenrode/nix-foundryvtt";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,8 +17,8 @@
       specialArgs = { inherit inputs; };
       modules = [
         home-manager.nixosModules.default
-        inputs.foundryvtt.nixosModules.foundryvtt
         ./hosts/default/configuration.nix
+        inputs.foundryvtt.nixosModules.foundryvtt
       ];
     };
 
