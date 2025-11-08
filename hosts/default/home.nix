@@ -10,12 +10,24 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-	vscode    
+  home.packages = with pkgs; [  
   discord 
   brave
   spotify
+  steam
+  vulkan-loader
+  vulkan-tools
+  mangohud #overlay for fps and such
+  protonup #proton GE
+  protonup-qt
+  unityhub
+  prismlauncher
+  xivlauncher
+  jetbrains.rider
+  gimp
+  obs-studio
   ];
+  
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

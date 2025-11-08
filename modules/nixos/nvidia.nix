@@ -37,4 +37,12 @@
     intelBusId = "PCI:00:2:0";
     nvidiaBusId = "PCI:01:0:0";
   };
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+  };
+  services.xserver.videoDrivers = [
+    "modesetting"  # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
+    "nvidia"
+  ];
 }

@@ -10,15 +10,8 @@
     [ 
       ./hardware-configuration.nix
       ./../../modules/nixos/nvidia.nix
+      ./../../modules/home-manager/foundry.nix
     ];
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
-  services.xserver.videoDrivers = [
-    "modesetting"  # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
-    "nvidia"
-  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -31,14 +24,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
-  # home manager
-  home-manager = {
-	#also pass inputs into home manager modules
-	extraSpecialArgs = {inherit inputs; };
-	users = {
-	   "dragonline" = import ./home.nix;
-	};
-  };
+  # Home Manager integration
+  home-manager.users.dragonline = import ./home.nix;
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -107,6 +94,13 @@
     #  thunderbird
     ];
   };
+  
+  #Steam support
+   programs.steam = {
+     enable = true;
+     gamescopeSession.enable = true;
+     extraCompatPackages = [ pkgs.proton-ge-bin ];
+   };
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -114,35 +108,23 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  #Enable better performance mod for certain programs
+  programs.gamemode.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    steam
-    vulkan-loader
-    vulkan-tools
-    mangohud #overlay for fps and such
-    protonup #proton GE
-    pciutils
-    protonup-qt
+    pciutils 
     lshw
     neofetch
-    unityhub
     nixd
-    prismlauncher
-    xivlauncher
     alejandra
     git
+    vscode  
   ];
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-  #Steam support
-   programs.steam = {
-     enable = true;
-     gamescopeSession.enable = true;
-     extraCompatPackages = [ pkgs.proton-ge-bin ];
-   };
-   programs.gamemode.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
