@@ -1,11 +1,12 @@
+
 { inputs, pkgs, ... }:
 
 {
   services.foundryvtt = {
     enable = true;
 
-    # Correct way: call the foundryvtt function with src
-    package = inputs.foundryvtt.packages.x86_64-linux.foundryvtt {
+    # Correct for nixpkgs-style Foundry package:
+    package = pkgs.foundryvtt.override {
       src = pkgs.requireFile {
         name = "FoundryVTT-Linux-13.350.zip";
         url = "https://foundryvtt.com";
