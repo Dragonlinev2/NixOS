@@ -10,7 +10,6 @@
     [ 
       ./hardware-configuration.nix
       ./../../modules/nixos/nvidia.nix
-      ./../../modules/home-manager/foundry.nix
     ];
 
   # Bootloader.
@@ -128,13 +127,17 @@
 
   #foundry setup
   services.foundryvtt = {
-    enable = true;
-    hostName = "dragon-den";
-    minifyStaticFiles = true;
-    proxyPort = 443;
-    proxySSL = true;
-    upnp = false;
-  };
+  enable = true;
+  hostName = "dragon-den.local";   # your hostname
+  minifyStaticFiles = true;
+  proxyPort = 443;
+  proxySSL = true;
+  upnp = false;
+
+  package = inputs.foundryvtt.packages.${pkgs.system}.default.overrideAttrs (old: {
+    src = "../../../zip/FoundryVTT0Linux-13.350.zip";
+  });
+};
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
