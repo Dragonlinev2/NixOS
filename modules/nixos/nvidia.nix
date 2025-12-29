@@ -1,4 +1,4 @@
-{ lib, config, pkgs,...}:
+{ config,...}:
 {
   hardware.nvidia = {
     # Modesetting is required.
