@@ -4,7 +4,7 @@
   users.users.dragonline = {
     isNormalUser = true;
     description = "Dragonline";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages =   [
     #  thunderbird
     ];

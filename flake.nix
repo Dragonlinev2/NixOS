@@ -39,17 +39,24 @@
         
                # Mango configuration for the user
               { 
-                wayland.windowManager.mango = { 
-                  enable = true; 
-                  settings = '' 
-                  output * scale 1 
-                  exec foot 
-                  exec waybar 
-                  exec kanshi ''; 
-                  autostart_sh = ''                     
-                  waybar & 
-                  foot & ''; 
-                  }; 
+                wayland.windowManager.mango = {
+                enable = true;
+
+                settings = ''
+                  output * scale 1
+                '';
+
+                autostart_sh = ''
+                  # Start a terminal so you don't get a gray screen
+                  foot &
+
+                  # Status bar
+                  waybar &
+
+                  # Output management
+                  kanshi &
+                '';
+                };
               } 
             ];
           }; 

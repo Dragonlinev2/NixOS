@@ -1,4 +1,4 @@
-{...}:
+{config, pkgs,...}:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -20,4 +20,21 @@
   programs.firefox.enable = true;
 
   system.stateVersion = "25.05"; 
+
+  virtualisation.docker.enable = true; #Stuff for docker and dotnet below, more dependencies in packages
+
+  programs.nix-ld.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-gnome3;  # or "curses" for headless systems
+  };   
+
+  programs.nix-ld.libraries = with pkgs; [
+  stdenv.cc.cc
+  openssl
+  icu
+  zlib
+  ];
 }

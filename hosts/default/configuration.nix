@@ -21,6 +21,7 @@
       ./../../modules/nixos/steam.nix
       ./../../modules/nixos/user-acc.nix
       ./../../modules/nixos/x11.nix
+      ./../../modules/nixos/virtualisation.nix
     ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

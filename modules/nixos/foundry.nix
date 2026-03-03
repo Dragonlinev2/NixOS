@@ -4,7 +4,7 @@
   services.foundryvtt = {
     
   enable = true;
-  hostName = "dragon-den.local";   # your hostname
+  hostName = "dragon-den.local";
   minifyStaticFiles = true;
   proxyPort = 443;
   proxySSL = true;
