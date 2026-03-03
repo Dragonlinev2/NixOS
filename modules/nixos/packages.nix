@@ -33,6 +33,5 @@
     davinci-resolve
     r2modman
     nodejs
-    virtualbox
   ];
 }
