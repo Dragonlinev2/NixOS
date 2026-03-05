@@ -13,7 +13,6 @@
   home-manager.users.dragonline = import ./../../hosts/default/home.nix;
   # Enable networking
   networking.networkmanager.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
