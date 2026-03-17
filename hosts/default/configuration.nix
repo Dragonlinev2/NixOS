@@ -22,7 +22,6 @@
       ./../../modules/nixos/user-acc.nix
       ./../../modules/nixos/x11.nix
       ./../../modules/nixos/virtualisation.nix
-      ./../../modules/nixos/qbit.nix
     ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
