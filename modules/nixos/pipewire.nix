@@ -12,7 +12,7 @@
     #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
+    # no need to redefine it in your config for now), WirePlumber is enabled, don't use this
     #media-session.enable = true;
   };
 }

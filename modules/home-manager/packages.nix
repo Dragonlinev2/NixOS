@@ -17,7 +17,7 @@
   gimp
   obs-studio
   easyeffects
-  evsieve #keyboard to controller remap
   libreoffice
+  r2modman
   ];
 }

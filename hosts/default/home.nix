@@ -4,6 +4,8 @@
   imports = [
     ./../../modules/home-manager/base.nix
     ./../../modules/home-manager/packages.nix
+    ./../../modules/home-manager/mangowc_dragonline.nix
+    ./../../modules/home-manager/wayland.nix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

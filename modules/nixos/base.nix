@@ -24,6 +24,8 @@
 
   programs.nix-ld.enable = true;
 
+  services.flatpak.enable = true; # Enable Flatpak support
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
